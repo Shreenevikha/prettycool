@@ -199,6 +199,75 @@ body {
   white-space: nowrap;
 }
 
+.op {
+  width: calc(var(--t) * 0.4);
+  height: calc(var(--t) * 1.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 calc(var(--t) * 0.5)/1 "DM Sans", sans-serif;
+  opacity: 0;
+}
+
+.heart-tile .tile-heart {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 48%;
+  height: 48%;
+  margin: -24% 0 0 -24%;
+  color: var(--heart);
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+.caption {
+  margin-top: 3cqw;
+  font: 600 5.4cqw/1 "Caveat", cursive;
+  opacity: 0;
+}
+
+.burst-heart,
+.float-heart {
+  position: absolute;
+  color: var(--heart);
+  pointer-events: none;
+}
+
+.burst-heart {
+  left: calc(50% - 2cqw);
+  top: calc(50% - 4cqw);
+  width: 4cqw;
+  height: 4cqw;
+  opacity: 0;
+}
+
+.burst-heart svg,
+.float-heart svg,
+.tap-heart svg { display: block; width: 100%; height: 100%; }
+
+.float-layer {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+
+.float-heart { left: 0; top: 0; opacity: 0; }
+
+.tap-heart {
+  position: fixed;
+  z-index: 5;
+  color: #8fd3a5;
+  pointer-events: none;
+  animation: tap-heart 1.1s ease-out forwards;
+}
+
+@keyframes tap-heart {
+  0%   { transform: scale(0.2); opacity: 0; }
+  20%  { transform: scale(1.15); opacity: 1; }
+  35%  { transform: scale(0.95) translateY(-10%); }
+  100% { transform: scale(0.9) translateY(-160%); opacity: 0; }
+}
+
 .hint {
   height: 4cqw;
   font: 800 2.9cqw/4cqw "Nunito", system-ui, sans-serif;
